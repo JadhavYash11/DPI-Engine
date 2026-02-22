@@ -51,6 +51,8 @@ Filtered PCAP Output + Statistics Report
 
 ## ⚙️ Build Instructions
 
+## ⚙️ Build Instructions
+
 ### Single-threaded Version
 
 ```bash
@@ -59,9 +61,9 @@ src/main_working.cpp \
 src/pcap_reader.cpp \
 src/packet_parser.cpp \
 src/sni_extractor.cpp \
-src/types.
+src/types.cpp
 
-Multi-threaded 
+ multithreaded
 g++ -std=c++17 -pthread -O2 -I include -o dpi_engine \
 src/dpi_mt.cpp \
 src/pcap_reader.cpp \
@@ -69,11 +71,22 @@ src/packet_parser.cpp \
 src/sni_extractor.cpp \
 src/types.cpp
 
-▶️ Running the Engine
+
+---
+
+  Run Section
+
+```markdown
+## ▶️ Running the Engine
+
 Basic usage:
-./dpi_engine input.pcap output.pcap
+
+```bash
+./dpi_engine test_dpi.pcap output.pcap
+
+
 With blocking rules:
-./dpi_engine input.pcap output.pcap \
+./dpi_engine test_dpi.pcap output.pcap \
     --block-app YouTube \
     --block-ip 192.168.1.50 \
     --block-domain facebook
